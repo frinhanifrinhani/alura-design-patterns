@@ -4,6 +4,10 @@
 namespace Alura\DesignPattern;
 
 
+use Alura\DesignPattern\AcoesAoGerarPedido\CriarPedidoNoBanco;
+use Alura\DesignPattern\AcoesAoGerarPedido\EnviarPedidosPorEmail;
+use Alura\DesignPattern\AcoesAoGerarPedido\LogGerarPedido;
+
 class GerarPedidoHandler
 {
     public function __construct(/* PedidosRepository, MailService */)
@@ -20,12 +24,14 @@ class GerarPedidoHandler
         $pedido->nomeCliente = $gerarPedido->getNomeCliente();
         $pedido->dataFinalizacao = new \DateTimeImmutable();
         $pedido->orcamento = $orcamento;
+        
+        $pedidosRepository = new CriarPedidoNoBanco();
+        $enviarPedidosPorEmail = new EnviarPedidosPorEmail();
+        $logGerarPedidos = new LogGerarPedido();
 
-        // PedidosRepository
-        echo "----- Cria pedido no banco de dados -----".PHP_EOL;
-        // MailService
-        echo "----- Envia email para cliente -----".PHP_EOL;
-        // Gerar log
-        echo "----- Gerar log de criação de pedido -----".PHP_EOL;
+        $pedidosRepository->executarAcao($pedido);
+        $enviarPedidosPorEmail->executarAcao($pedido);
+        $logGerarPedidos->executarAcao($pedido);
+
     }
 }
