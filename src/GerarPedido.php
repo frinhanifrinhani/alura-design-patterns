@@ -3,7 +3,7 @@
 
 namespace Alura\DesignPattern;
 
-class GerarPedido
+class GerarPedido implements Command
 {
     private float $valorOrcamento;
     private int $numeroDeItens;
