@@ -33,12 +33,6 @@ class GerarPedido
         $pedido->orcamento = $orcamento;
 
         echo "----- Cria pedido no banco de dados -----".PHP_EOL;
-        var_dump($orcamento);
-        var_dump($pedido);
-        echo "---------------------------------------".PHP_EOL;
         echo "----- Envia email para cliente -----".PHP_EOL;
-        var_dump($orcamento);
-        var_dump($pedido);
-        echo "---------------------------------------".PHP_EOL;
     }
 }
