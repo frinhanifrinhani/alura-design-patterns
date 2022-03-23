@@ -6,7 +6,7 @@ namespace Alura\DesignPattern\AcoesAoGerarPedido;
 
 use Alura\DesignPattern\Pedido;
 
-class EnviarPedidosPorEmail
+class EnviarPedidosPorEmail implements AcaoAoGerarPedido
 {
     public function executarAcao(Pedido $pedido)
     {

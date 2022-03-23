@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Alura\DesignPattern\AcoesAoGerarPedido;
-
 
 use Alura\DesignPattern\Pedido;
 
-class CriarPedidoNoBanco
+class CriarPedidoNoBanco implements AcaoAoGerarPedido
 {
     public function executarAcao(Pedido $pedido)
     {
